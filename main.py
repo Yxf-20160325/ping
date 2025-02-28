@@ -14,7 +14,9 @@ entry2.pack()
 def kill_python():
  # 关闭 python.exe 窗口的命令
  command = "taskkill /f /im python.exe"
+ command2 = "taskkill /f /im ping.exe"
  sp.Popen(command, shell=True)
+ sp.Popen(command2, shell=True)
 
 def ping():
 	if entry2.get() == "":
@@ -23,6 +25,6 @@ def ping():
          sp.Popen("ping "+entry.get() + " " + entry2.get())
 buuton = tk.Button(root,text="ping",command=ping)
 buuton.pack()
-button2 = tk.Button(root,text="关闭",command=lambda:root.destroy())
+button2 = tk.Button(root,text="关闭",command=lambda:kill_python())
 button2.pack()
 root.mainloop()
