@@ -23,8 +23,13 @@ def ping():
 		sp.Popen("ping "+entry.get())
 	else:
          sp.Popen("ping "+entry.get() + " " + entry2.get())
+def kill_ping():
+	command3 = "taskkill /f /im ping.exe"
+	sp.Popen(command3, shell=True)
 buuton = tk.Button(root,text="ping",command=ping)
 buuton.pack()
-button2 = tk.Button(root,text="关闭",command=lambda:kill_python())
+button2 = tk.Button(root,text="停止ping",command=lambda:kill_ping())
 button2.pack()
+button3 = tk.Button(root,text="关闭并停止ping",command=lambda:kill_python())
+button3.pack()
 root.mainloop()
